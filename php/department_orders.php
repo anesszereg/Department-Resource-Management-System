@@ -34,9 +34,7 @@ if ($status_filter != 'all') {
 // Commandes archivées - Inclure status_updated_at, date_validation et quantity_delivered
 $orders = mysqli_query($conn, "SELECT c.*, p.name AS product_name, p.image, 
                                c.created_at AS datetime_commande,
-                               c.status_updated_at AS date_status_update,
-                               c.date_validation,
-                               c.quantity_delivered
+                               COALESCE(c.status_updated_at, c.created_at) AS date_status_update
                                FROM cart c 
                                LEFT JOIN products p ON c.product_id = p.id 
                                WHERE c.user_id = $user_id 
@@ -177,8 +175,8 @@ $count_Not_Approved = mysqli_num_rows(mysqli_query($conn, "SELECT * FROM cart
                         </td>
                         <td><?= $order['quantity'] ?></td>
                         <td>
-                            <span class="delivered-quantity <?= ($order['status'] == 'validée' && $order['allotted_quantity'] > 0) ? 'allotted_quantity' : '' ?>">
-                                <?= ($order['allotted_quantity'] > 0) ? $order['allotted_quantity'] : '-' ?>
+                            <span class="delivered-quantity <?= ($order['status'] == 'validée' && isset($order['allotted_quantity']) && $order['allotted_quantity'] > 0) ? 'allotted_quantity' : '' ?>">
+                                <?= (isset($order['allotted_quantity']) && $order['allotted_quantity'] > 0) ? $order['allotted_quantity'] : '-' ?>
                             </span>
                         </td>
                         <td><?= !empty($order['datetime_commande']) ? date('d/m/Y H:i:s', strtotime($order['datetime_commande'])) : '-' ?></td>
@@ -211,14 +209,8 @@ $count_Not_Approved = mysqli_num_rows(mysqli_query($conn, "SELECT * FROM cart
                         <td>
                             <?php 
                             // Afficher la date de validation ou de mise à jour du statut
-                            if (($order['status'] ?? '') == 'validée' || ($order['status'] ?? '') == 'rejetée' || ($order['status'] ?? '') == 'livrée') {
-                                if (!empty($order['date_validation'])) {
-                                    echo date('d/m/Y H:i:s', strtotime($order['date_validation']));
-                                } elseif (!empty($order['date_status_update'])) {
-                                    echo date('d/m/Y H:i:s', strtotime($order['date_status_update'])); 
-                                } else {
-                                    echo "-";
-                                }
+                            if (!empty($order['date_status_update'])) {
+                                echo date('d/m/Y H:i:s', strtotime($order['date_status_update'])); 
                             } else {
                                 echo "-";
                             }

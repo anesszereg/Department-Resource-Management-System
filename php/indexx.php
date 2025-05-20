@@ -37,6 +37,9 @@ if (isset($_SESSION['dept_notification']) && $_SESSION['dept_notification'] === 
 
 ?>
 
+<!-- Notification Container -->
+<div id="notification-container"></div>
+
 <!-- Department Dashboard Content -->
 <div class="section">
     <div class="section-header">
@@ -87,3 +90,9 @@ document.addEventListener('DOMContentLoaded', function () {
     font-size: 16px;
 }
 </style>
+
+<!-- Notification Styles -->
+<link rel="stylesheet" href="../css/notification.css">
+
+<!-- Notification Script -->
+<script src="notification.js"></script>
