@@ -1,0 +1,706 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-------- bootstrap css---------->
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+    <!----- css------------>
+    <link rel="stylesheet" href="/css/LOTFI.CSS">
+
+
+
+</head>
+<body>
+
+
+
+
+
+
+    </html> 
+    <div class="container-fluid">
+        <div class="row">
+            <!-- Sidebar -->
+            <div class="col-auto col-md-3 col-lg-2 px-0 sidebar">
+                <div class="logo">
+                    <span>UMBB</span> MatAdmin
+                </div>
+                <ul class="nav flex-column mt-4">
+                    <li class="nav-item">
+                        <a href="#" class="nav-link active">
+                            <i class="fas fa-tachometer-alt"></i> Tableau de bord
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#" class="nav-link">
+                            <i class="fas fa-clipboard-list"></i> Demandes
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#" class="nav-link">
+                            <i class="fas fa-plus-circle"></i> Nouvelle Demande
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#" class="nav-link">
+                            <i class="fas fa-boxes"></i> Inventaire
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#" class="nav-link">
+                            <i class="fas fa-university"></i> Départements
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#" class="nav-link">
+                            <i class="fas fa-truck"></i> Livraisons
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#" class="nav-link">
+                            <i class="fas fa-chart-bar"></i> Rapports
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#" class="nav-link">
+                            <i class="fas fa-users"></i> Comptes
+                            <span class="badge bg-warning rounded-pill float-end">3</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#" class="nav-link">
+                            <i class="fas fa-cog"></i> Paramètres
+                        </a>
+                    </li>
+                    <li class="nav-item mt-5">
+                        <a href="#" class="nav-link">
+                            <i class="fas fa-sign-out-alt"></i> Déconnexion
+                        </a>
+                    </li>
+                </ul>
+            </div>
+            
+            <!-- Main Content -->
+            <div class="col-md-9 col-lg-10 ms-auto">
+                <!-- Top Bar -->
+                <div class="row top-bar mb-4">
+                    <div class="col-md-6">
+                        <h4>Tableau de Bord</h4>
+                    </div>
+                    
+                        <div class="col-md-6 text-end">
+                           <!-- Notification Dropdown -->
+                    <div class="d-inline-block me-3 position-relative dropdown">
+                        <a class="text-dark text-decoration-none" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            <i class="fas fa-bell fs-5"></i>
+                            <span class="notification-badge has-new">5</span>
+                        </a>
+                        <div class="dropdown-menu dropdown-menu-end notification-dropdown">
+                            <div class="notification-header">
+                                <span><strong>5</strong> Nouvelles demandes</span>
+                                <a href="#" class="text-decoration-none small">Marquer tout comme lu</a>
+                            </div>
+                            
+                            <div class="notification-item">
+                                <div class="notification-title">Nouvelle demande - DM-2023-008</div>
+                                <div class="notification-text">Dép. Informatique: 10 souris sans fil</div>
+                                <span class="notification-time">Il y a 30 minutes</span>
+                                <div class="notification-actions">
+                                    <button class="btn btn-sm btn-success me-1"><i class="fas fa-check"></i> Approuver</button>
+                                    <button class="btn btn-sm btn-danger"><i class="fas fa-times"></i> Rejeter</button>
+                                </div>
+                            </div>
+                            
+                            <div class="notification-item">
+                                <div class="notification-title">Nouvelle demande - DM-2023-009</div>
+                                <div class="notification-text">Dép. Physique: 5 multimètres</div>
+                                <span class="notification-time">Il y a 45 minutes</span>
+                                <div class="notification-actions">
+                                    <button class="btn btn-sm btn-success me-1"><i class="fas fa-check"></i> Approuver</button>
+                                    <button class="btn btn-sm btn-danger"><i class="fas fa-times"></i> Rejeter</button>
+                                </div>
+                            </div>
+                            
+                            <div class="notification-item">
+                                <div class="notification-title">Nouvelle demande - DM-2023-010</div>
+                                <div class="notification-text">Dép. Mathématiques: 20 calculatrices</div>
+                                <span class="notification-time">Il y a 1 heure</span>
+                                <div class="notification-actions">
+                                    <button class="btn btn-sm btn-success me-1"><i class="fas fa-check"></i> Approuver</button>
+                                    <button class="btn btn-sm btn-danger"><i class="fas fa-times"></i> Rejeter</button>
+                                </div>
+                            </div>
+                            
+                            <div class="notification-footer">
+                                <a href="#" class="text-decoration-none">Voir toutes les demandes</a>
+                            </div>
+                        </div>
+                    </div>
+                    
+                            
+                            <!-- Demandes de comptes avec badge -->
+                            <div class="d-inline-block me-3 position-relative">
+                                <i class="fas fa-user-plus fs-5" data-bs-toggle="dropdown"></i>
+                                <span class="account-badge">3</span>
+                                <!-- Dropdown menu pour les demandes de compte -->
+                                <div class="dropdown-menu dropdown-menu-end account-dropdown">
+                                    <div class="dropdown-header">Demandes de compte (3)</div>
+                                    
+                                    <!-- Demande 1 -->
+                                    <div class="account-item">
+                                        <div class="d-flex align-items-center">
+                                            <img src="/api/placeholder/40/40" class="rounded-circle me-2" alt="User">
+                                            <div>
+                                                <strong>Ahmed Kaddour</strong>
+                                                <div class="small text-muted">Département: Informatique</div>
+                                                <div class="small text-muted">Role: Enseignant</div>
+                                            </div>
+                                        </div>
+                                        <div class="account-actions">
+                                            <button class="btn btn-sm btn-success">Accepter</button>
+                                            <button class="btn btn-sm btn-danger">Rejeter</button>
+                                            <button class="btn btn-sm btn-info">Détails</button>
+                                        </div>
+                                    </div>
+                                    
+                                    <!-- Demande 2 -->
+                                    <div class="account-item">
+                                        <div class="d-flex align-items-center">
+                                            <img src="/api/placeholder/40/40" class="rounded-circle me-2" alt="User">
+                                            <div>
+                                                <strong>Sarah Mansouri</strong>
+                                                <div class="small text-muted">Département: Biologie</div>
+                                                <div class="small text-muted">Role: Chef département</div>
+                                            </div>
+                                        </div>
+                                        <div class="account-actions">
+                                            <button class="btn btn-sm btn-success">Accepter</button>
+                                            <button class="btn btn-sm btn-danger">Rejeter</button>
+                                            <button class="btn btn-sm btn-info">Détails</button>
+                                        </div>
+                                    </div>
+                                    
+                                    <!-- Demande 3 -->
+                                    <div class="account-item">
+                                        <div class="d-flex align-items-center">
+                                            <img src="/api/placeholder/40/40" class="rounded-circle me-2" alt="User">
+                                            <div>
+                                                <strong>Karim Boudiaf</strong>
+                                                <div class="small text-muted">Département: Génie Civil</div>
+                                                <div class="small text-muted">Role: Technicien</div>
+                                            </div>
+                                        </div>
+                                        <div class="account-actions">
+                                            <button class="btn btn-sm btn-success">Accepter</button>
+                                            <button class="btn btn-sm btn-danger">Rejeter</button>
+                                            <button class="btn btn-sm btn-info">Détails</button>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="dropdown-footer">
+                                        <a href="#" class="text-primary">Voir tous les comptes</a>
+                                    </div>
+                                </div>
+                            </div>
+                             <!-- Messages -->
+                        <div class="d-inline-block me-3">
+                            <i class="fas fa-envelope fs-5"></i>
+                        </div> 
+                        <!-- Profil utilisateur -->
+                        <div class="d-inline-block dropdown">
+                            <a class="dropdown-toggle text-dark text-decoration-none" href="#" role="button" data-bs-toggle="dropdown">
+                                <img src="/assets/imgs/20170617013644!Logo-umbb-crsic.png" class="rounded-circle" width="100" height="70" >
+                                <span class="ms-2">Admin</span>
+                            </a>
+                            <ul class="dropdown-menu dropdown-menu-end">
+                                <li><a class="dropdown-item" href="#"><i class="fas fa-user me-2"></i> Profil</a></li>
+                                <li><a class="dropdown-item" href="#"><i class="fas fa-cog me-2"></i> Paramètres</a></li>
+                                <!-- Nouvel élément de menu pour gérer les comptes -->
+                                <li><a class="dropdown-item" href="#"><i class="fas fa-clipboard-list me-2"></i> Gestion des demandes</a></li>
+                                <li><a class="dropdown-item" href="#"><i class="fas fa-users-cog me-2"></i> Gestion des comptes</a></li>
+                                <li><hr class="dropdown-divider"></li>
+                                <li><a class="dropdown-item" href="#"><i class="fas fa-sign-out-alt me-2"></i> Déconnexion</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Stats Cards -->
+                <div class="row mb-4">
+                    <div class="col-md-3">
+                        <div class="card card-stats card-pending">
+                            <div class="card-body">
+                                <div class="row">
+                                    <div class="col">
+                                        <h5 class="card-title text-muted mb-0">En attente</h5>
+                                        <span class="h2 font-weight-bold mb-0">25</span>
+                                    </div>
+                                    <div class="col-auto">
+                                        <div class="bg-warning text-white rounded-circle p-3">
+                                            <i class="fas fa-clock"></i>
+                                        </div>
+                                    </div>
+                                </div>
+                                <p class="mt-3 mb-0 text-sm">
+                                    <span class="text-success me-2"><i class="fa fa-arrow-up"></i> 3.48%</span>
+                                    <span class="text-muted">depuis le mois dernier</span>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="card card-stats card-approved">
+                            <div class="card-body">
+                                <div class="row">
+                                    <div class="col">
+                                        <h5 class="card-title text-muted mb-0">Approuvées</h5>
+                                        <span class="h2 font-weight-bold mb-0">12</span>
+                                    </div>
+                                    <div class="col-auto">
+                                        <div class="bg-success text-white rounded-circle p-3">
+                                            <i class="fas fa-check"></i>
+                                        </div>
+                                    </div>
+                                </div>
+                                <p class="mt-3 mb-0 text-sm">
+                                    <span class="text-success me-2"><i class="fa fa-arrow-up"></i> 12%</span>
+                                    <span class="text-muted">depuis le mois dernier</span>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="card card-stats card-rejected">
+                            <div class="card-body">
+                                <div class="row">
+                                    <div class="col">
+                                        <h5 class="card-title text-muted mb-0">Rejetées</h5>
+                                        <span class="h2 font-weight-bold mb-0">5</span>
+                                    </div>
+                                    <div class="col-auto">
+                                        <div class="bg-danger text-white rounded-circle p-3">
+                                            <i class="fas fa-times"></i>
+                                        </div>
+                                    </div>
+                                </div>
+                                <p class="mt-3 mb-0 text-sm">
+                                    <span class="text-danger me-2"><i class="fa fa-arrow-down"></i> 4.25%</span>
+                                    <span class="text-muted">depuis le mois dernier</span>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="card card-stats card-delivered">
+                            <div class="card-body">
+                                <div class="row">
+                                    <div class="col">
+                                        <h5 class="card-title text-muted mb-0">Livrées</h5>
+                                        <span class="h2 font-weight-bold mb-0">31</span>
+                                    </div>
+                                    <div class="col-auto">
+                                        <div class="bg-primary text-white rounded-circle p-3">
+                                            <i class="fas fa-truck"></i>
+                                        </div>
+                                    </div>
+                                </div>
+                                <p class="mt-3 mb-0 text-sm">
+                                    <span class="text-success me-2"><i class="fa fa-arrow-up"></i> 15%</span>
+                                    <span class="text-muted">depuis le mois dernier</span>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Main Content Area -->
+                <div class="main-content mb-4">
+                    <div class="row mb-3">
+                        <div class="col-md-6">
+                            <h5>Liste des Demandes de Matériel</h5>
+                        </div>
+                        <div class="col-md-6 text-end">
+                            <div class="btn-group">
+                                <button type="button" class="btn btn-outline-secondary dropdown-toggle" data-bs-toggle="dropdown">
+                                    <i class="fas fa-filter"></i> Département
+                                </button>
+                                <ul class="dropdown-menu">
+                                    <li><a class="dropdown-item department-filter" data-department="all">Tous</a></li>
+                                    <li><a class="dropdown-item department-filter" data-department="informatique">Informatique</a></li>
+                                    <li><a class="dropdown-item department-filter" data-department="genie-civil">Génie Civil</a></li>
+                                    <li><a class="dropdown-item department-filter" data-department="biologie">Biologie</a></li>
+                                    <li><a class="dropdown-item department-filter" data-department="physique">Physique</a></li>
+                                    <li><a class="dropdown-item department-filter" data-department="mathematiques">Mathématiques</a></li>
+                                </ul>
+                            </div>
+                            <div class="btn-group ms-2">
+                                <button type="button" class="btn btn-outline-secondary dropdown-toggle" data-bs-toggle="dropdown">
+                                    <i class="fas fa-filter"></i> Statut
+                                </button>
+                                <ul class="dropdown-menu">
+                                    <li><a class="dropdown-item status-filter" data-status="all">Tous</a></li>
+                                    <li><a class="dropdown-item status-filter" data-status="pending">En attente</a></li>
+                                    <li><a class="dropdown-item status-filter" data-status="approved">Approuvé</a></li>
+                                    <li><a class="dropdown-item status-filter" data-status="rejected">Rejeté</a></li>
+                                    <li><a class="dropdown-item status-filter" data-status="delivered">Livré</a></li>
+                                </ul>
+                            </div>
+                            <button class="btn btn-outline-secondary ms-2">
+                                <i class="fas fa-download"></i> Exporter
+                            </button>
+                        </div>
+                    </div>
+                    
+                    <div class="table-responsive">
+                        <table class="table table-hover">
+                            <thead>
+                                <tr>
+                                    <th>ID</th>
+                                    <th>Département</th>
+                                    <th>Matériel</th>
+                                    <th>Quantité</th>
+                                    <th>Date de demande</th>
+                                    <th>Priorité</th>
+                                    <th>Statut</th>
+                                    <th>Actions</th>
+                                </tr>
+                            </thead>
+                            <tbody id="requestsTable">
+                                <tr>
+                                    <td>DM-2023-001</td>
+                                    <td>Informatique</td>
+                                    <td>Ordinateurs portables</td>
+                                    <td>15</td>
+                                    <td>15/02/2023</td>
+                                    <td><span class="badge bg-danger">Haute</span></td>
+                                    <td><span class="status-badge status-pending">En attente</span></td>
+                                    <td>
+                                        <button class="btn btn-sm btn-outline-info" data-bs-toggle="modal" data-bs-target="#detailModal"><i class="fas fa-eye"></i></button>
+                                        <button class="btn btn-sm btn-outline-success"><i class="fas fa-check"></i></button>
+                                        <button class="btn btn-sm btn-outline-danger"><i class="fas fa-times"></i></button>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>DM-2023-002</td>
+                                    <td>Génie Civil</td>
+                                    <td>Station totale</td>
+                                    <td>2</td>
+                                    <td>18/02/2023</td>
+                                    <td><span class="badge bg-warning">Moyenne</span></td>
+                                    <td><span class="status-badge status-approved">Approuvé</span></td>
+                                    <td>
+                                        <button class="btn btn-sm btn-outline-info" data-bs-toggle="modal" data-bs-target="#detailModal"><i class="fas fa-eye"></i></button>
+                                        <button class="btn btn-sm btn-outline-primary"><i class="fas fa-truck"></i></button>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>DM-2023-003</td>
+                                    <td>Biologie</td>
+                                    <td>Microscopes</td>
+                                    <td>8</td>
+                                    <td>20/02/2023</td>
+                                    <td><span class="badge bg-info">Basse</span></td>
+                                    <td><span class="status-badge status-rejected">Rejeté</span></td>
+                                    <td>
+                                        <button class="btn btn-sm btn-outline-info" data-bs-toggle="modal" data-bs-target="#detailModal"><i class="fas fa-eye"></i></button>
+                                        <button class="btn btn-sm btn-outline-warning"><i class="fas fa-redo"></i></button>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>DM-2023-004</td>
+                                    <td>Informatique</td>
+                                    <td>Projecteurs</td>
+                                    <td>4</td>
+                                    <td>21/02/2023</td>
+                                    <td><span class="badge bg-warning">Moyenne</span></td>
+                                    <td><span class="status-badge status-delivered">Livré</span></td>
+                                    <td>
+                                        <button class="btn btn-sm btn-outline-info" data-bs-toggle="modal" data-bs-target="#detailModal"><i class="fas fa-eye"></i></button>
+                                        <button class="btn btn-sm btn-outline-secondary"><i class="fas fa-file-alt"></i></button>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>DM-2023-005</td>
+                                    <td>Physique</td>
+                                    <td>Oscilloscopes</td>
+                                    <td>10</td>
+                                    <td>22/02/2023</td>
+                                    <td><span class="badge bg-danger">Haute</span></td>
+                                    <td><span class="status-badge status-pending">En attente</span></td>
+                                    <td>
+                                        <button class="btn btn-sm btn-outline-info" data-bs-toggle="modal" data-bs-target="#detailModal"><i class="fas fa-eye"></i></button>
+                                        <button class="btn btn-sm btn-outline-success"><i class="fas fa-check"></i></button>
+                                        <button class="btn btn-sm btn-outline-danger"><i class="fas fa-times"></i></button>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>DM-2023-006</td>
+                                    <td>Mathématiques</td>
+                                    <td>Calculatrices scientifiques</td>
+                                    <td>25</td>
+                                    <td>23/02/2023</td>
+                                    <td><span class="badge bg-info">Basse</span></td>
+                                    <td><span class="status-badge status-approved">Approuvé</span></td>
+                                    <td>
+                                        <button class="btn btn-sm btn-outline-info" data-bs-toggle="modal" data-bs-target="#detailModal"><i class="fas fa-eye"></i></button>
+                                        <button class="btn btn-sm btn-outline-primary"><i class="fas fa-truck"></i></button>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>DM-2023-007</td>
+                                    <td>Génie Civil</td>
+                                    <td>Kits de laboratoire</td>
+                                    <td>5</td>
+                                    <td>24/02/2023</td>
+                                    <td><span class="badge bg-warning">Moyenne</span></td>
+                                    <td><span class="status-badge status-pending">En attente</span></td>
+                                    <td>
+                                        <button class="btn btn-sm btn-outline-info" data-bs-toggle="modal" data-bs-target="#detailModal"><i class="fas fa-eye"></i></button>
+                                        <button class="btn btn-sm btn-outline-success"><i class="fas fa-check"></i></button>
+                                        <button class="btn btn-sm btn-outline-danger"><i class="fas fa-times"></i></button>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    
+                    <div class="d-flex justify-content-between mt-3">
+                        <div>
+                            <span>Affichage de 1-7 sur 42 demandes</span>
+                        </div>
+                        <nav>
+                            <ul class="pagination">
+                                <li class="page-item disabled">
+                                    <a class="page-link" href="#" tabindex="-1">Précédent</a>
+                                </li>
+                                <li class="page-item active"><a class="page-link" href="#">1</a></li>
+                                <li class="page-item"><a class="page-link" href="#">2</a></li>
+                                <li class="page-item"><a class="page-link" href="#">3</a></li>
+                                <li class="page-item">
+                                    <a class="page-link" href="#">Suivant</a>
+                                </li>
+                            </ul>
+                        </nav>
+                    </div>
+                </div>
+                
+                <!-- Recent Activity and Departments -->
+                <div class="row">
+                    <div class="col-md-6 mb-4">
+                        <div class="main-content">
+                            <h5 class="mb-3">Activité récente</h5>
+                            <div class="timeline">
+                                <div class="timeline-item">
+                                    <p class="mb-0"><strong>Admin</strong> a approuvé la demande <a href="#">DM-2023-002</a></p>
+                                    <small class="text-muted">Il y a 2 heures</small>
+                                </div>
+                                <div class="timeline-item">
+                                    <p class="mb-0"><strong>Admin</strong> a rejeté la demande <a href="#">DM-2023-003</a></p>
+                                    <small class="text-muted">Il y a 3 heures</small>
+                                </div>
+                                <div class="timeline-item">
+                                    <p class="mb-0">La demande <a href="#">DM-2023-004</a> a été livrée</p>
+                                    <small class="text-muted">Il y a 5 heures</small>
+                                </div>
+                                <div class="timeline-item">
+                                    <p class="mb-0"><strong>Département Informatique</strong> a créé une nouvelle demande</p>
+                                    <small class="text-muted">Il y a 6 heures</small>
+                                </div>
+                                <div class="timeline-item">
+                                    <p class="mb-0"><strong>Admin</strong> a mis à jour l'inventaire</p>
+                                    <small class="text-muted">Il y a 1 jour</small>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6 mb-4">
+                        <div class="main-content">
+                            <h5 class="mb-3">Demandes par Département</h5>
+                            <canvas id="departmentChart" height="250"></canvas>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- Modal pour les détails du compte (à ajouter) -->
+    <div class="modal fade" id="accountDetailModal" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Détails de la demande de compte</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="text-center mb-3">
+                        <img src="/api/placeholder/100/100" class="rounded-circle mb-2" alt="User">
+                        <h5>Ahmed Kaddour</h5>
+                        <p class="text-muted">Enseignant - Département Informatique</p>
+                    </div>
+                    
+                    <div class="mb-3">
+                        <h6>Informations personnelles</h6>
+                        <table class="table table-sm">
+                            <tbody>
+                                <tr>
+                                    <th>Email:</th>
+                                    <td>a.kaddour@univ-boumerdes.dz</td>
+                                </tr>
+                                <tr>
+                                    <th>Téléphone:</th>
+                                    <td>+213 555 123 789</td>
+                                </tr>
+                                <tr>
+                                    <th>Date de demande:</th>
+                                    <td>12/03/2023</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    
+                    <div class="mb-3">
+                        <h6>Justification</h6>
+                        <p>Demande d'accès au système pour gérer les demandes de matériel informatique pour le laboratoire de recherche en IA.</p>
+                    </div>
+                    
+                    <div class="mb-3">
+                        <h6>Privilèges demandés</h6>
+                        <ul class="list-group">
+                            <li class="list-group-item d-flex justify-content-between align-items-center">
+                                Créer des demandes
+                                <span class="badge bg-primary rounded-pill">✓</span>
+                            </li>
+                            <li class="list-group-item d-flex justify-content-between align-items-center">
+                                Consulter l'inventaire
+                                <span class="badge bg-primary rounded-pill">✓</span>
+                            </li>
+                            <li class="list-group-item d-flex justify-content-between align-items-center">
+                                Gérer les livraisons
+                                <span class="badge bg-secondary rounded-pill">✗</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fermer</button>
+                    <button type="button" class="btn btn-danger">Rejeter</button>
+                    <button type="button" class="btn btn-success">Approuver</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    
+    
+ 
+ 
+    
+    <!-- Detail Modal -->
+    <div class="modal fade detail-modal" id="detailModal" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Détails de la Demande #DM-2023-001</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="row mb-4">
+                        <div class="col-md-6">
+                            <h6>Informations Générales</h6>
+                            <table class="table table-sm">
+                                <tbody>
+                                    <tr>
+                                        <th>ID de la demande:</th>
+                                        <td>DM-2023-001</td>
+                                    </tr>
+                                    <tr>
+                                        <th>Département:</th>
+                                        <td>Informatique</td>
+                                    </tr>
+                                    <tr>
+                                        <th>Date de demande:</th>
+                                        <td>15/02/2023</td>
+                                    </tr>
+                                    <tr>
+                                        <th>Demandeur:</th>
+                                        <td>Dr. Mohammed Benali</td>
+                                    </tr>
+                                    <tr>
+                                        <th>Email:</th>
+                                        <td>m.benali@univ-boumerdes.dz</td>
+                                    </tr>
+                                    <tr>
+                                        <th>Téléphone:</th>
+                                        <td>+213 555 123 456</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        <div class="col-md-6">
+                            <h6>Statut</h6>
+                            <div class="progress mb-2">
+                                <div class="progress-bar bg-warning" role="progressbar" style="width: 25%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
+                            </div>
+                            <p><span class="status-badge status-pending">En attente</span> (Étape 1 sur 4)</p>
+                            
+                            <h6 class="mt-4">Historique</h6>
+                            <ul class="list-unstyled small">
+                                <li class="mb-1">
+                                    <i class="fas fa-circle text-success me-1"></i> 
+                                    15/02/2023 10:30 - Demande créée
+                                </li>
+                                <li class="mb-1">
+                                    <i class="fas fa-circle text-primary me-1"></i> 
+                                    15/02/2023 11:45 - Demande reçue par l'administration
+                                </li>
+                                <li class="mb-1">
+                                    <i class="fas fa-circle text-warning me-1"></i> 
+                                    15/02/2023 14:20 - En attente d'approbation
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    
+                    <h6>Détails du Matériel</h6>
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th>Item</th>
+                                <th>Description</th>
+                                <th>Quantité</th>
+                                <th>Disponibilité</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Ordinateurs portables</td>
+                                <td>HP ProBook 450 G8, i5, 16Go RAM, 512 SSD</td>
+                                <td>15</td>
+                                <td><span class="badge bg-success">En stock (20)</span></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    
+                    
+                   
+
+
+
+
+
+
+
+
+
+
+
+    </div>
+    <!--------bootstrap js ------------->
+<script src="/js/bootstrap.bundle.min.js"></script>
+<!--------js------------->
+<script src="/js/LOTFI.JS"></script>
+</body>

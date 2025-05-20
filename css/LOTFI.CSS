@@ -1,0 +1,531 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+
+*,
+::after,
+::before {
+    box-sizing: border-box;
+}
+
+body {
+    background-image: url(/5805324071154599475_121\ \(1\)\ \(1\).jpg);
+    font-family: 'Poppins', sans-serif;
+    margin: 0;
+ background-position: center;
+    background-size: cover; 
+    background-repeat: no-repeat;
+     width: 100%;
+    height: 180vh;
+}
+
+.sidebar {
+    background-color: var(--primary-color);
+    min-height: 100vh;
+    color: rgb(14, 1, 1);
+}
+
+.sidebar .nav-link {
+    color: rgba(10, 1, 1, 0.8);
+    padding: 0.8rem 1rem;
+    border-radius: 5px;
+    margin: 0.2rem 0;
+}
+
+.sidebar .nav-link:hover, 
+.sidebar .nav-link.active {
+    background-color: rgba(255, 255, 255, 0.1);
+    color: rgb(14, 0, 0);
+}
+
+.sidebar .nav-link i {
+    margin-right: 10px;
+}
+
+.logo {
+    font-weight: bold;
+    color: white;
+    padding: 1.5rem;
+    text-align: center;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.main-content {
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.05);
+    padding: 20px;
+}
+
+.status-badge {
+    padding: 5px 10px;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    font-weight: bold;
+}
+
+.status-pending {
+    background-color: #f39c12;
+    color: white;
+}
+
+.status-approved {
+    background-color: #2ecc71;
+    color: white;
+}
+
+.status-rejected {
+    background-color: #e74c3c;
+    color: white;
+}
+
+.status-delivered {
+    background-color: #3498db;
+    color: white;
+}
+
+.department-filter {
+    cursor: pointer;
+}
+
+.card-stats {
+    transition: all 0.3s;
+    border-left: 4px solid transparent;
+}
+
+.card-stats:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.card-pending {
+    border-left-color: #f39c12;
+}
+
+.card-approved {
+    border-left-color: #2ecc71;
+}
+
+.card-rejected {
+    border-left-color: #e74c3c;
+}
+
+.card-delivered {
+    border-left-color: #3498db;
+}
+
+
+.top-bar {
+   
+    padding: 1rem;
+    box-shadow: 0 2px 5px rgba(13, 0, 0, 0.826);
+
+    
+}
+
+.notification-badge {
+    position: absolute;
+    top: -5px;
+    right: -5px;
+    background-color: var(--accent-color);
+    color: white;
+    border-radius: 50%;
+    width: 18px;
+    height: 18px;
+    font-size: 0.7rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.detail-modal .modal-header {
+    background-color: var(--primary-color);
+    color: white;
+}
+
+.timeline {
+    position: relative;
+    padding-left: 30px;
+}
+
+.timeline-item {
+    position: relative;
+    padding-bottom: 1.5rem;
+}
+
+.timeline-item:before {
+    content: "";
+    position: absolute;
+    left: -25px;
+    top: 0;
+    width: 2px;
+    height: 100%;
+    background-color: #ddd;
+}
+
+.timeline-item:last-child:before {
+    height: 0;
+}
+
+.timeline-item:after {
+    content: "";
+    position: absolute;
+    left: -30px;
+    top: 0;
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background-color: var(--secondary-color);
+}
+ /* Badge de notification */
+ .notification-badge {
+    position: absolute;
+    top: -8px;
+    right: -8px;
+    background-color: #f44336;
+    color: white;
+    border-radius: 50%;
+    padding: 0.2rem 0.5rem;
+    font-size: 0.7rem;
+}
+
+.account-badge {
+    position: absolute;
+    top: -8px;
+    right: -8px;
+    background-color: #ff9800;
+    color: white;
+    border-radius: 50%;
+    padding: 0.2rem 0.5rem;
+    font-size: 0.7rem;
+}
+
+/* Style pour le menu des demandes de compte */
+.account-dropdown {
+    width: 320px;
+    padding: 0;
+}
+
+.account-dropdown .dropdown-header {
+    background-color: #f8f9fa;
+    font-weight: bold;
+    padding: 10px 15px;
+    border-bottom: 1px solid #dee2e6;
+}
+
+.account-dropdown .account-item {
+    padding: 10px 15px;
+    border-bottom: 1px solid #f1f1f1;
+}
+
+.account-dropdown .account-item:hover {
+    background-color: #f8f9fa;
+}
+
+.account-dropdown .account-actions {
+    display: flex;
+    margin-top: 5px;
+}
+
+.account-dropdown .account-actions .btn {
+    margin-right: 5px;
+}
+
+.account-dropdown .dropdown-footer {
+    text-align: center;
+    padding: 10px;
+    background-color: #f8f9fa;
+}
+
+/* Highlight pour l'élément de menu actif */
+.nav-link.active {
+    background-color: rgba(255, 255, 255, 0.1);
+    border-left: 3px solid #fff;
+}
+
+/* Animation pour les badges */
+@keyframes pulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.1); }
+    100% { transform: scale(1); }
+}
+
+.account-badge {
+    animation: pulse 2s infinite;
+}
+
+/* Add these styles to your CSS file */
+.notification-badge {
+    position: absolute;
+    top: -5px;
+    right: -5px;
+    background-color: #ff4444;
+    color: white;
+    border-radius: 50%;
+    width: 18px;
+    height: 18px;
+    font-size: 11px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: bold;
+}
+
+.notification-dropdown {
+    width: 300px;
+    max-height: 400px;
+    overflow-y: auto;
+}
+
+.notification-item {
+    padding: 10px 15px;
+    border-bottom: 1px solid rgba(0,0,0,0.05);
+}
+
+.notification-item:hover {
+    background-color: rgba(0,0,0,0.03);
+}
+
+.notification-item.unread {
+    background-color: rgba(13, 110, 253, 0.05);
+    font-weight: 500;
+}
+
+.notification-title {
+    font-weight: 500;
+}
+
+.notification-icon {
+    width: 25px;
+    text-align: center;
+}
+
+
+
+
+
+
+
+
+/* Additional CSS for enhancements */
+.sidebar {
+   
+    color: #f2f8fa;
+    min-height: 100vh;
+    position: fixed;
+    z-index: 100;
+}
+
+.logo {
+    padding: 20px 15px;
+    font-size: 1.5rem;
+    font-weight: bold;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.logo span {
+    color: #3498db;
+}
+
+.nav-link {
+    color: #ecf0f1;
+    padding: 10px 15px;
+    transition: all 0.3s;
+}
+
+.nav-link:hover, .nav-link.active {
+    background-color: #34495e;
+    color: #3498db;
+}
+
+.nav-link i {
+    margin-right: 10px;
+    width: 20px;
+    text-align: center;
+}
+
+.top-bar {
+    
+    padding: 15px 0;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    margin-left: 0;
+    margin-right: 0;
+    
+}
+
+     
+
+
+
+.notification-badge {
+    position: absolute;
+    top: -8px;
+    right: -8px;
+    background-color: #e74c3c; 
+    color: white;
+    border-radius: 50%;
+    width: 18px;
+    height: 18px;
+    font-size: 0.7rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.main-content {
+    background-color: #fff;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.05);
+    padding: 20px;
+}
+
+/* Status badges */
+.status-badge {
+    padding: 5px 10px;
+    border-radius: 15px;
+    font-size: 0.8rem;
+}
+
+.status-pending {
+    background-color: #ffeeba;
+    color: #856404;
+}
+
+.status-approved {
+    background-color: #d4edda;
+    color: #155724;
+}
+
+.status-rejected {
+    background-color: #f8d7da;
+    color: #721c24;
+}
+
+.status-delivered {
+    background-color: #cce5ff;
+    color: #004085;
+}
+
+/* Timeline */
+.timeline {
+    position: relative;
+    padding-left: 30px;
+}
+
+.timeline-item {
+    padding: 15px 0;
+    border-left: 2px solid #3498db;
+    position: relative;
+    padding-left: 20px;
+    margin-left: -30px;
+}
+
+.timeline-item:before {
+    content: '';
+    position: absolute;
+    left: -7px;
+    top: 15px;
+    width: 12px;
+    height: 12px;
+    background-color: #3498db;
+    border-radius: 50%;
+}
+
+/* Notification dropdown */
+.notification-dropdown {
+    min-width: 300px;
+    padding: 0;
+}
+
+.notification-header {
+    background-color: #f8f9fa;
+    padding: 10px 15px;
+    border-bottom: 1px solid #dee2e6;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.notification-item {
+    padding: 10px 15px;
+    border-bottom: 1px solid #dee2e6;
+    transition: background-color 0.3s;
+}
+
+.notification-item:hover {
+    background-color: #f8f9fa;
+}
+
+.notification-title {
+    font-weight: 600;
+    margin-bottom: 5px;
+}
+
+.notification-text {
+    font-size: 0.85rem;
+    margin-bottom: 5px;
+}
+
+.notification-time {
+    font-size: 0.75rem;
+    color: #6c757d;
+    display: block;
+}
+
+.notification-actions {
+    margin-top: 8px;
+}
+
+.notification-footer {
+    padding: 10px 15px;
+    text-align: center;
+    background-color: #f8f9fa;
+}
+
+/* Badge Animation */
+@keyframes pulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.1); }
+    100% { transform: scale(1); }
+}
+
+.notification-badge.has-new {
+    animation: pulse 1s infinite;
+}
+
+/* Card hover effect */
+.card-stats {
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.card-stats:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

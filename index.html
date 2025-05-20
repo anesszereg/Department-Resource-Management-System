@@ -1,0 +1,890 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Main Page</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+            --accent: #a88beb;
+        }
+        
+        body {
+            background-color: #f0f2f5;
+        }
+        .logo {
+            display: flex;
+            align-items: center;
+        }
+        
+        .logo img {
+            width: 200px;
+            height: 70px;
+            margin: 10%;
+        }
+        
+        
+        
+        /* Style for navbar links with new design */
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 15px;
+        }
+        
+        .nav-links li a {
+            display: inline-block;
+            padding: 10px 20px;
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            border: 2px solid rgba(255, 255, 255, 0.3);
+            border-radius: 30px;
+            background-color: rgba(255, 255, 255, 0.1);
+            transition: all 0.3s ease;
+            text-align: center;
+            min-width: 120px;
+        }
+        
+        .nav-links li a:hover {
+            background-color: rgba(255, 255, 255, 0.2);
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        }
+        
+        .dropdown {
+            position: relative;
+            display: inline-block;
+        }
+        
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: #111;
+            min-width: 200px;
+            box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+            z-index: 1;
+            border-radius: 5px;
+            top: 45px;
+        }
+        
+        .dropdown-content a {
+            color: #fff;
+            padding: 12px 16px;
+            text-decoration: none;
+            display: block;
+            transition: background-color 0.3s;
+            border-radius: 0 !important;
+            border: none !important;
+            text-align: left !important;
+            min-width: initial !important;
+        }
+        
+        .dropdown-content a:hover {
+            background-color: #333;
+        }
+        
+        .dropdown:hover .dropdown-content {
+            display: block;
+        }
+        
+        /* Base style for all buttons */
+        .btn, .signup-btn {
+            padding: 12px 24px;
+            border-radius: 30px;
+            font-family: 'Poppins', sans-serif;
+            font-weight: 600;
+            font-size: 16px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            border: none;
+            margin: 0 10px;
+        }
+        
+        /* Specific style for login button */
+        .btn-custom-primary {
+            background: linear-gradient(135deg, #375d89 0%, #6094ee 100%);
+            color: white;
+        }
+        
+        .btn-custom-primary:hover {
+            background: linear-gradient(135deg, #375d89 0%, #6094ee 100%);
+            transform: translateY(-3px);
+            box-shadow: 0 7px 14px rgba(0, 0, 0, 0.15);
+        }
+        
+        /* Specific style for signup button */
+        .signup-btn {
+            background: transparent;
+            color: white;
+            border: 2px solid rgba(255, 255, 255, 0.3);
+        }
+        
+        .signup-btn:hover {
+            background: rgba(255, 255, 255, 0.1);
+            color: white;
+            transform: translateY(-3px);
+            box-shadow: 0 7px 14px rgba(0, 0, 0, 0.15);
+        }
+        
+        /* Style for button container */
+        .auth-buttons {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin: 20px 0;
+        }
+        
+        /* Click effect for both buttons */
+        .btn:active, .signup-btn:active {
+            transform: translateY(1px);box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+        
+        .hero-logo {
+            width: 80px;
+            height: 80px;
+            margin-bottom: 20px;
+        }
+        
+        .hero h1 {
+            font-size: 60px;
+            margin-bottom: 40px;
+            max-width: 800px;
+        }
+        
+        .hero p {
+            font-size: 25px;
+            margin-bottom: 20px;
+            max-width: 800px;
+        }
+        
+        .cta-button {
+            background-color: #0076ff;
+            color: white;
+            padding: 12px 30px;
+            border: none;
+            border-radius: 25px;
+            font-size: 16px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        
+        .cta-button:hover {
+            background-color: #0062d1;
+        }
+        
+        /* Main Content */
+        #main-content {
+            padding: 84px 10%;
+        }
+        
+        .section-title {
+            color: #333;
+            font-size: 28px;
+            margin-bottom: 30px;
+            text-align: center;
+        }
+        
+        /* Department Section */
+        .department-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 25px;
+            margin-bottom: 50px;
+        }
+        
+        .department-card {
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            overflow: hidden;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        
+        .department-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+        }
+        
+        .department-header {
+            height: 140px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 48px;
+        }
+        
+        .department-body {
+            padding: 25px;
+        }
+        
+        .department-name {
+            font-size: 20px;
+            font-weight: bold;
+            margin-bottom: 15px;
+            color: #333;
+        }
+        
+        .department-description {
+            color: #666;
+            font-size: 14px;
+            line-height: 1.6;
+            margin-bottom: 20px;
+        }
+        
+        .explore-btn {
+            display: inline-block;
+            padding: 10px 20px;
+            background-color: #284b72;
+            color: white;
+            border-radius: 5px;
+            text-decoration: none;
+            font-size: 14px;
+            transition: background-color 0.3s;
+        }
+        
+        .explore-btn:hover {
+            background-color: #375d89;
+        }
+        
+        /* Login Modal */
+        .login-modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0,0,0,0.7);
+            z-index: 1000;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .login-form {
+            background-color: white;
+            padding: 30px;
+            border-radius: 10px;
+            width: 350px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        }
+        
+        .login-form h2 {
+            margin-bottom: 20px;
+            color: #333;
+            text-align: center;
+        }
+        
+        .form-group {
+            margin-bottom: 15px;
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+            color: #555;
+        }
+        
+        .form-group input {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+        
+        .form-actions {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: 20px;
+        }
+        
+        .close-login {
+            background: none;border: none;
+            color: #666;
+            cursor: pointer;
+        }
+        
+        .submit-login {
+            background-color: #0076ff;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        
+        /* Media queries */
+        @media (max-width: 768px) {
+            .navbar {
+                flex-direction: column;
+                padding: 15px 5%;
+            }
+            
+            .logo {
+                margin-bottom: 15px;
+                
+            }
+            
+            .nav-links {
+                margin: 15px 0;
+                flex-direction: column;
+                width: 100%;
+            }
+            
+            .nav-links li {
+                width: 100%;
+                margin: 5px 0;
+            }
+            
+            .nav-links li a {
+                width: 100%;
+                display: block;
+            }
+            
+            .hero h1 {
+                font-size: 28px;
+            }
+            
+            .hero p {
+                font-size: 16px;
+            }
+            
+            .department-grid {
+                grid-template-columns: 1fr;
+            }
+         }
+         
+         /*----------------contact--------------------*/
+         /* Styles for contact section */
+         .contact-section {
+             padding: 60px 10%;
+             background-color: #f8f9fa;
+         }
+         
+         .contact-container {
+             display: flex;
+             flex-wrap: wrap;
+             gap: 30px;
+             margin-top: 30px;
+         }
+         
+         .contact-info {
+             flex: 1;
+             min-width: 300px;
+             background-color: #fff;
+             padding: 30px;
+             border-radius: 10px;
+             box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+         }
+         
+         .info-item {
+             display: flex;
+             align-items: center;
+             margin-bottom: 20px;
+         }
+         
+         .info-item i {
+             font-size: 20px;
+             color: #2d598b;
+             margin-right: 15px;
+             width: 40px;
+             height: 40px;
+             display: flex;
+             align-items: center;
+             justify-content: center;
+             background-color: rgba(45, 89, 139, 0.1);
+             border-radius: 50%;
+        }
+        
+        /* Style for navbar - modified to not be fixed */
+        .navbar {
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 10%;
+            position: relative; /* Changed from sticky to relative */
+            z-index: 1000;
+        }
+        
+        /* Add dark overlay for navbar */
+        .navbar::before {
+            content: none;
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            z-index: -1;
+        }
+        
+        /* Ensure logo and links are visible on background image */
+        
+        
+        .nav-links {
+            display: flex;
+            list-style: none;
+            position: relative; /* Relative position to be above overlay */
+        }
+        
+        .auth-buttons {
+            position: relative; /* Relative position to be above overlay */
+        }
+        
+        /* Styles for navbar superimposed on background image */
+        .navbar {
+            position: absolute; /* Absolute position to overlay on image */
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1000;
+            padding: 15px 10%;
+        }
+        
+        /* Hero section with background image */
+        .hero {
+            height: 750px; /* Increased height to accommodate navbar */
+            background: linear-gradient(rgba(8, 9, 9, 0.093),#08b2eb),url("./assets/imgs/IMG_6167.jpg");
+            background-size: cover;
+            background-position: center;
+            color: white;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            position: relative;
+            padding-top: 80px; /* Space for navbar */
+        }
+        
+        /* Dark overlay to improve text readability */
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            z-index: 0;
+        }
+        
+        /* Ensure hero content is above the overlay */
+        .hero-content {
+            position: relative;
+            z-index: 1;
+            padding: 0 20px;
+        }
+        
+        /* Style for logo in navbar */
+        .logo img {
+            filter: drop-shadow(0 1px 3px rgba(0, 0, 0, 0.6));
+        }
+        
+
+
+
+/* CSS */
+/* CSS for footer */
+/* CSS for footer */
+footer {
+    background: linear-gradient(rgba(8, 9, 9, 0.104),#05445a),url("./assets/imgs/IMG_6167.jpg");
+    padding-top: 100px;
+    border-radius: 30% 30% 0 0;
+    background-size: cover;
+    background-position: center;
+}
+
+.newsletter-contact {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    padding: 20px 150px;
+    flex-wrap: wrap;
+}
+
+.newsletter, .contact {
+    width: 48%;
+    margin-bottom: 30px;
+}
+
+.newsletter-contact span {
+    font-size: 20px;
+    font-weight: 600;
+    color: #FFFFFF;
+    letter-spacing: 1px;
+    display: block;
+    margin-bottom: 20px;
+}
+
+footer p {
+    padding: 15px 0;
+    margin: 0 20px;
+    text-align: center;
+    border-top: 1px solid #fff;
+    color: #fff;
+}
+
+/* Styles for location section */
+.map-container {
+    border-radius: 12px;
+    overflow: hidden;
+    margin-top: 15px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+/* VERTICAL social contact container */
+.social-contact-container.vertical {
+    display: flex;
+    flex-direction: column; /* Make items stack vertically */
+    gap: 15px;
+    margin-top: 20px;
+}
+
+.social-contact-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 10px;
+    width: 100%; /* Full width in vertical layout */
+}
+
+.social-icon {
+    width: 50px;
+    height: 50px;
+    border: 2px solid rgba(255, 255, 255, 0.7);
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-decoration: none;
+    background-color: transparent;
+    transition: all 0.3s ease;
+}
+
+.social-icon i {
+    color: white;
+    font-size: 20px;
+}
+
+.social-text {
+    font-size: 16px;
+    color: white;
+}
+
+.social-icon:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+}
+
+/* Location heading styling */
+.location-heading {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 15px;
+}
+
+.location-heading i {
+    font-size: 24px;
+    color: white;
+}
+
+/* Media queries for responsiveness */
+@media (max-width: 1200px) {
+    .newsletter-contact {
+        padding: 20px 50px;
+    }
+}
+
+@media (max-width: 992px) {
+    .newsletter, .contact {
+        width: 100%;
+        margin-bottom: 40px;
+    }
+    
+    .footer_img {
+        width: 100%;
+        margin: 30px 0;
+    }
+    
+    .newsletter-contact {
+        flex-wrap: wrap;
+    }
+}
+
+@media (max-width: 768px) {
+    .newsletter, .contact {
+        width: 100%;
+        margin-bottom: 40px;
+    }
+    
+    .newsletter-contact h3 {
+        font-size: 32px;
+        line-height: 38px;
+    }
+}
+    </style>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="logo">
+            <img src="./assets/imgs/20170617013644!Logo-umbb-crsic.png" alt="Logo">
+        </div>
+        <ul class="nav-links">
+            <li><a href="#">Home</a></li>
+            <li class="dropdown">
+                <a href="#main-content">Departments</a>
+            </li>
+            <li><a href="#footer">Contact</a></li>
+        </ul>
+        
+    </nav>
+
+     
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="overlay"></div>
+        <div class="hero-content">   
+            <h1>Simplify your orders, optimize your deliveries!</h1>
+            <p>Equipment at your fingertips, efficiency guaranteed!</p>
+            <div class="auth-buttons">
+                <a href="./php/login.php">
+                    <button type="button" class="btn btn-custom-primary">
+                      LOG IN
+                    </button>
+                </a>
+                <a href="./php/register.php">
+                    <button class="signup-btn">Sign Up</button>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Main Content -->
+    <div id="main-content">
+        <h2 class="section-title">Departments</h2>
+        <div class="department-grid">
+            <div class="department-card">
+                <div class="department-header" style="background-color: #284b72;">
+                    <i class="fas fa-laptop-code"></i>
+                </div>
+                <div class="department-body">
+                    <h4 class="department-name">Computer Science</h4>
+                    <p class="department-description">Discover our courses and resources in programming, databases, artificial intelligence and more.</p>
+                    <a href="CONDITION.HTML" class="explore-btn">Explore</a>
+                </div>
+            </div>
+            
+            <div class="department-card">
+                <div class="department-header" style="background-color: #375d89;">
+                    <i class="fas fa-square-root-alt"></i>
+                </div>
+                <div class="department-body">
+                    <h4 class="department-name">Mathematics</h4>
+                    <p class="department-description">Algebra, analysis, geometry and statistics, all the tools to understand the world through numbers.</p>
+                    <a href="CONDITION.HTML" class="explore-btn">Explore</a>
+                </div>
+            </div>
+            
+            <div class="department-card">
+                <div class="department-header" style="background-color: #1d3c5c;">
+                    <i class="fas fa-dna"></i>
+                </div>
+                <div class="department-body">
+                    <h4 class="department-name">Biology</h4>
+                    <p class="department-description">Study of living organisms, their structure, functioning and interactions.</p>
+                    <a href="CONDITION.HTML" class="explore-btn">Explore</a>
+                </div>
+            </div>
+            
+            <div class="department-card">
+                <div class="department-header" style="background-color: #2c5888;">
+                    <i class="fas fa-flask"></i>
+                </div>
+                <div class="department-body">
+                    <h4 class="department-name">Chemistry</h4>
+                    <p class="department-description">Explore matter and its transformations through our courses and practical work.</p>
+                    <a href="CONDITION.HTML" class="explore-btn">Explore</a>
+                </div>
+            </div>
+            
+            <div class="department-card">
+                <div class="department-header" style="background-color: #213f65;">
+                    <i class="fas fa-atom"></i>
+                </div>
+                <div class="department-body">
+                    <h4 class="department-name">Physics</h4>
+                    <p class="department-description">Mechanics, electromagnetism, thermodynamics and modern physics to understand the universe.</p>
+                    <a href="CONDITION.HTML" class="explore-btn">Explore</a>
+                </div>
+            </div>
+            
+            <div class="department-card">
+                <div class="department-header"style="background-color: #334f6e;">
+                    <i class="fas fa-book-reader"></i>
+                </div>
+                <div class="department-body">
+                    <h4 class="department-name">library</h4>
+                    <p class="department-description">Learn and perfect foreign languages with our linguistic programs.</p>
+                    <a href="CONDITION.HTML" class="explore-btn">Explore</a>
+                </div>
+            </div>
+            <!-- Agronomy Department -->
+            <div class="department-card">
+                <div class="department-header" style="background-color:  #213f65;">
+                    <i class="fas fa-seedling"></i>
+                </div>
+                <div class="department-body">
+                    <h4 class="department-name">Agronomy</h4>
+                    <p class="department-description">Delve into sustainable agriculture, crop science, and soil management to shape the future of food production.</p>
+                    <a href="CONDITION.HTML" class="explore-btn">Explore</a>
+                </div>
+            </div>
+            
+            <!-- STAPS Department -->
+            <div class="department-card">
+                <div class="department-header" style="background-color:  #213f65;">
+                    <i class="fas fa-running"></i>
+                </div>
+                <div class="department-body">
+                    <h4 class="department-name">Sports Science (STAPS)</h4>
+                    <p class="department-description">Understand the human body in motion, training methods, and sports performance for athletic development and health.</p>
+                    <a href="CONDITION.HTML" class="explore-btn">Explore</a>
+                </div>
+            </div>
+            
+            <!-- Medicine Department -->
+            <div class="department-card">
+                <div class="department-header" style="background-color: #213f65;">
+                    <i class="fas fa-user-md"></i>
+                </div>
+                <div class="department-body">
+                    <h4 class="department-name">Medicine</h4>
+                    <p class="department-description">Explore human health, disease prevention, diagnostics, and treatment through clinical and biomedical education.</p>
+                    <a href="CONDITION.HTML" class="explore-btn">Explore</a>
+                </div>
+            </div>
+            
+            <!-- Science & Technology Department -->
+            <div class="department-card">
+                <div class="department-header" style="background-color:  #213f65;">
+                    <i class="fas fa-microscope"></i>
+                </div>
+                <div class="department-body">
+                    <h4 class="department-name">Science & Technology</h4>
+                    <p class="department-description">Pursue innovation through scientific exploration and modern technologies across engineering and applied sciences.</p>
+                    <a href="CONDITION.HTML" class="explore-btn">Explore</a>
+                </div>
+            </div>
+            
+            <!-- Administration Department -->
+            <div class="department-card">
+                <div class="department-header" style="background-color:  #213f65;">
+                    <i class="fas fa-building"></i>
+                </div>
+                <div class="department-body">
+                    <h4 class="department-name">Public Administration</h4>
+                    <p class="department-description">Gain insights into governance, policy-making, public services and organizational leadership in the public sector.</p>
+                    <a href="CONDITION.HTML" class="explore-btn">Explore</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Footer section with redesigned layout -->
+    <!-- Footer section with redesigned layout -->
+<footer id="footer">
+    <div class="newsletter-contact">
+        <!-- Left side: Social Media Section -->
+        <div class="newsletter">
+            <span>FOLLOW US</span>
+            
+            <!-- Social media buttons in horizontal layout -->
+            <div class="social-contact-container">
+                <!-- Facebook -->
+                <div class="social-contact-item">
+                    <a target="_blank" class="social-icon" title="Facebook UMBB">
+                        <i class="fab fa-facebook-f"></i>
+                    </a>
+                    <span class="social-text">Facebook UMBB</span>
+                </div>
+            
+                <!-- Telegram -->
+                <div class="social-contact-item">
+                    <a class="social-icon" title="Telegram (non disponible)">
+                        <i class="fab fa-telegram-plane"></i>
+                    </a>
+                    <span class="social-text">Inim Informations</span>
+                </div>
+            
+                <!-- Email -->
+                <div class="social-contact-item">
+                    <a class="social-icon" title="Envoyer un e-mail">
+                        <i class="fas fa-envelope"></i>
+                    </a>
+                    <span class="social-text">Viee_doyen.fs@univ-boumered.dz</span>
+                </div>
+            
+                <!-- Fax -->
+                <div class="social-contact-item">
+                    <a class="social-icon" title="Fax : (024) 79 90 19" style="cursor: default;">
+                        <i class="fas fa-fax"></i>
+                    </a>
+                    <span class="social-text">(024) 79 90 19</span>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Right side: Map Section - on same level as social media -->
+        <div class="contact">
+            <div class="location-heading">
+                <i class="fas fa-map-marker-alt"></i>
+                <span>FIND US</span>
+            </div>
+            <div class="map-container">
+                <iframe
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3197.1720342758037!2d3.4741708!3d36.7066439!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x128e690a14f4bd55%3A0x9b0fb63b4f132a51!2sFacult%C3%A9%20des%20Sciences%2C%20Universit%C3%A9%20M'Hamed%20Bougara%20de%20Boumerd%C3%A8s!5e0!3m2!1sfr!2sdz!4v1713619021749!5m2!1sfr!2sdz"
+                width="100%" height="250" style="border:0;" allowfullscreen="" loading="lazy"
+                referrerpolicy="no-referrer-when-downgrade">
+                </iframe>
+            </div>
+            <p style="margin-top:10px; text-align:center;">Université M'hamed Bougara de Boumerdès – Faculté des Sciences (INIM)</p>
+        </div>
+    </div>
+    
+    <p>© 2025 Université M'hamed Bougara de Boumerdès. All Rights Reserved.</p>
+</footer>
+    <script>
+         // Show login modal
+         document.getElementById('showLogin').addEventListener('click', function() {
+                 document.getElementById('loginModal').style.display = 'flex';
+             });
+             
+             // Close login modal
+             document.getElementById('closeLogin').addEventListener('click', function() {
+                 document.getElementById('loginModal').style.display = 'none';
+             });
+             
+             // Close modal when clicking outside of it
+             window.addEventListener('click', function(event) {
+                 if (event.target === document.getElementById('loginModal')) {
+                     document.getElementById('loginModal').style.display = 'none';
+                 }
+             });
+         </script>
+     </body>
+     </html>
